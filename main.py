@@ -2,11 +2,12 @@ from pynput.keyboard import Key, Events, KeyCode
 import subprocess
 import json
 import time
+import sys
 
 # Variables
 
 rooms = {}
-objects = {}       # objects[room_id] — static definitions from objects.json
+objects = {}       # objects[room_id] - static definitions from objects.json
 obj_states = {}    # obj_states[room_id][i] = {"position": [x, y], "health": int|None}
 player = None
 current_room_id = 0
@@ -88,6 +89,9 @@ def load_objects():
 
 def enter_room(room_id, spawn_pos=(0, 0)):
     global current_room_id, grid, warning, entry_move_counter
+    if room_id == 99:
+        game_win()
+        return
     warning = f"Now entering: {rooms[room_id]['name']}"
     entry_move_counter = 3
     player.position = spawn_pos
@@ -151,7 +155,7 @@ def render_board(projectile_pos=None):
 
     adjacent, adj_index = get_adjacent_object()
     if adjacent is not None and entry_move_counter == 0:
-        print(f"📌 {adjacent['name']} — {adjacent['description']}")
+        print(f"📌 {adjacent['name']} - {adjacent['description']}")
         adj_health = obj_states[current_room_id][adj_index]["health"]
         if adj_health is not None:
             adj_max = adjacent["health"]
@@ -190,16 +194,19 @@ def get_adjacent_object():
     return None, None
 
 def categorize_objects_at(x, y):
-    """Returns (portal_index, movable_index, blocker_index) for objects at (x, y)."""
+    """Returns (portal_index, movable_index, blocker_index, hazard_index) for objects at (x, y)."""
     room_objs = objects[current_room_id]
     states = obj_states[current_room_id]
     indices = find_objects_at(states, x, y)
 
     portal = next((i for i in indices if not room_objs[i]["movable"] and room_objs[i]["room_on_overlap"] != -1), None)
     movable = next((i for i in indices if room_objs[i]["movable"]), None)
-    blocker = next((i for i in indices if not room_objs[i]["movable"] and room_objs[i]["room_on_overlap"] == -1), None)
+    hazard = next((i for i in indices if "damage" in room_objs[i]), None)
+    blocker = next((i for i in indices if not room_objs[i]["movable"]
+                    and room_objs[i]["room_on_overlap"] == -1
+                    and "damage" not in room_objs[i]), None)
 
-    return portal, movable, blocker
+    return portal, movable, blocker, hazard
 
 def try_push_object(obj_index, dx, dy):
     states = obj_states[current_room_id]
@@ -213,10 +220,8 @@ def try_push_object(obj_index, dx, dy):
 
     for i in find_objects_at(states, push_x, push_y):
         obj_at = room_objs[i]
-        if obj_at["movable"]:
-            return False  # can't push into another movable
-        if obj_at["room_on_overlap"] == -1:
-            return False  # solid non-portal object blocks the push
+        if not obj_at["movable"] and "damage" not in obj_at:
+            return False  # portals and solid blockers block push; hazards don't
 
     states[obj_index]["position"] = [push_x, push_y]
     return True
@@ -237,13 +242,13 @@ def try_move_player(dx, dy):
     if grid[new_x + 1][new_y + 1] == "⬜":
         return
 
-    portal_index, movable_index, blocker_index = categorize_objects_at(new_x, new_y)
+    portal_index, movable_index, blocker_index, hazard_index = categorize_objects_at(new_x, new_y)
 
     if blocker_index is not None:
         return
 
     if portal_index is not None:
-        # Portal takes priority — transition even if a movable is also here
+        # Portal takes priority - transition even if a movable is also here
         portal = objects[current_room_id][portal_index]
         entry_point = portal["entry_point"]
         enter_room(portal["room_on_overlap"], spawn_pos=tuple(entry_point))
@@ -257,6 +262,9 @@ def try_move_player(dx, dy):
 
     player.position = (new_x, new_y)
     _decrement_entry_counter()
+
+    if hazard_index is not None:
+        player.health -= objects[current_room_id][hazard_index]["damage"]
 
 # Projectile Logic
 
@@ -284,7 +292,8 @@ def fire_projectile():
             continue
 
         movable_hit = next((i for i in hit_indices if room_objs[i]["movable"]), None)
-        non_movable_hit = next((i for i in hit_indices if not room_objs[i]["movable"]), None)
+        non_movable_hit = next((i for i in hit_indices
+                                if not room_objs[i]["movable"] and "damage" not in room_objs[i]), None)
 
         if movable_hit is not None:
             try_push_object(movable_hit, dx, dy)
@@ -300,6 +309,22 @@ def fire_projectile():
             else:
                 damage_object(current_room_id, non_movable_hit)
             break
+
+# End States
+
+def game_over():
+    subprocess.run(["clear"])
+    subprocess.run(["stty", "echo"])
+    print("You died. The facility consumed you.")
+    print("Thanks for playing!")
+    sys.exit(0)
+
+def game_win():
+    subprocess.run(["clear"])
+    subprocess.run(["stty", "echo"])
+    print("You reached the surface. Dr. Cosor escaped.")
+    print("Thanks for playing!")
+    sys.exit(0)
 
 # Main Game Loop
 
@@ -323,6 +348,10 @@ def main():
                 subprocess.run(["clear"])
                 subprocess.run(["stty", "echo"])
                 print("Thanks for playing!")
+                break
+
+            if player.health <= 0:
+                game_over()
                 break
 
             if event.key == Key.space:

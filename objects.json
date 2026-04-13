@@ -1,28 +1,28 @@
 {
 	"0": [
 		{
-			"name": "the key",
-			"description": "You found the key to the next room!",
-			"icon": "🔑",
-			"position": [19, 0],
+			"name": "the emergency hatch",
+			"description": "An emergency maintenance hatch. Cold recycled air seeps through. The service corridor lies beyond.",
+			"icon": "🚪",
+			"position": [19, 5],
 			"movable": false,
 			"room_on_overlap": 1,
-			"entry_point": [1, 0]
+			"entry_point": [1, 3]
 		},
 		{
-			"name": "the ball",
-			"description": "Push it around, don't, I don't really care.",
-			"icon": "⚾️",
-			"position": [4, 4],
+			"name": "the supply crate",
+			"description": "A heavy metal supply crate, wedged against the hatch. Blast it or shove it aside.",
+			"icon": "📦",
+			"position": [18, 5],
 			"movable": true,
 			"health": 100,
 			"room_on_overlap": -1
 		},
 		{
-			"name": "the ball",
-			"description": "Push it around, don't, I don't really care.",
-			"icon": "⚾️",
-			"position": [6, 6],
+			"name": "your research tablet",
+			"description": "Your cracked research tablet. Last entry: 'Teleporter collapse - field inverted. I'm in the restricted sectors. Must reach the surface via the Generator Room before lockdown seals. - Dr. Cosor'",
+			"icon": "📱",
+			"position": [3, 4],
 			"movable": true,
 			"health": 100,
 			"room_on_overlap": -1
@@ -30,22 +30,531 @@
 	],
 	"1": [
 		{
-			"name": "the portal",
-			"description": "You went through the portal, which takes you back to the last room...",
-			"icon": "🧲",
-			"position": [0, 0],
+			"name": "the generator room door",
+			"description": "A heavy blast door propped open with a fire extinguisher. The generator room roars beyond.",
+			"icon": "🚪",
+			"position": [21, 3],
 			"movable": false,
-			"room_on_overlap": 0,
-			"entry_point": [18, 0]
+			"room_on_overlap": 2,
+			"entry_point": [1, 5]
 		},
 		{
-			"name": "the key",
-			"description": "You found the key to the next room!",
-			"icon": "🔑",
-			"position": [9, 0],
+			"name": "the maintenance hatch",
+			"description": "The hatch back to the containment bay.",
+			"icon": "🔙",
+			"position": [0, 3],
+			"movable": false,
+			"room_on_overlap": 0,
+			"entry_point": [18, 5]
+		},
+		{
+			"name": "the live wiring",
+			"description": "High-voltage wiring torn from the ceiling. The air smells of ozone. You cannot pass without a shield.",
+			"icon": "🔥",
+			"position": [11, 0],
+			"movable": false,
+			"damage": 15,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the live wiring",
+			"description": "High-voltage wiring torn from the ceiling. The air smells of ozone. You cannot pass without a shield.",
+			"icon": "🔥",
+			"position": [11, 1],
+			"movable": false,
+			"damage": 15,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the live wiring",
+			"description": "High-voltage wiring torn from the ceiling. The air smells of ozone. You cannot pass without a shield.",
+			"icon": "🔥",
+			"position": [11, 2],
+			"movable": false,
+			"damage": 15,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the live wiring",
+			"description": "High-voltage wiring torn from the ceiling. The air smells of ozone. You cannot pass without a shield.",
+			"icon": "🔥",
+			"position": [11, 3],
+			"movable": false,
+			"damage": 15,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the live wiring",
+			"description": "High-voltage wiring torn from the ceiling. The air smells of ozone. You cannot pass without a shield.",
+			"icon": "🔥",
+			"position": [11, 4],
+			"movable": false,
+			"damage": 15,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the live wiring",
+			"description": "High-voltage wiring torn from the ceiling. The air smells of ozone. You cannot pass without a shield.",
+			"icon": "🔥",
+			"position": [11, 5],
+			"movable": false,
+			"damage": 15,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the engineer's note",
+			"description": "A handwritten note: 'Explosion ripped through the corridor. Wiring unsafe - entire junction is live. Push something heavy through first. - Chief Engineer Walsh'",
+			"icon": "📋",
+			"position": [5, 0],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the supply crate",
+			"description": "A heavy supply crate. It could shield you from the live wiring if you push it through first.",
+			"icon": "📦",
+			"position": [6, 3],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
+		}
+	],
+	"2": [
+		{
+			"name": "the maintenance shaft hatch",
+			"description": "A cramped maintenance shaft hatch. The ladder inside leads toward the surface levels.",
+			"icon": "🚪",
+			"position": [17, 5],
+			"movable": false,
+			"room_on_overlap": 3,
+			"entry_point": [1, 4]
+		},
+		{
+			"name": "the corridor door",
+			"description": "The blast door back to the service corridor.",
+			"icon": "🔙",
+			"position": [0, 5],
 			"movable": false,
 			"room_on_overlap": 1,
-			"entry_point": [8, 0]
+			"entry_point": [20, 3]
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 0],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 1],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 2],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 3],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 4],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 5],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 6],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 7],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 8],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [6, 9],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 0],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 1],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 2],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 3],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 4],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 5],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 6],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 7],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 8],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the exhaust vent",
+			"description": "A malfunctioning coolant exhaust vent. Superheated steam - impassable without a crate to shield you.",
+			"icon": "💨",
+			"position": [12, 9],
+			"movable": false,
+			"damage": 20,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the supply crate",
+			"description": "A heavy supply crate. Push it into a vent column to shield your crossing.",
+			"icon": "📦",
+			"position": [3, 5],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the supply crate",
+			"description": "A heavy supply crate. Push it into a vent column to shield your crossing.",
+			"icon": "📦",
+			"position": [9, 5],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the generator core",
+			"description": "The main generator core powering the facility lockdown. Massively reinforced - shoot it repeatedly if you want it gone, or find a way around it.",
+			"icon": "🔩",
+			"position": [9, 0],
+			"movable": false,
+			"health": 200,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the maintenance log",
+			"description": "Chief Engineer Walsh's log: 'Coolant breaches on both sides of the generator. Push a crate through each vent column first - the crate absorbs the steam long enough to cross safely.'",
+			"icon": "📋",
+			"position": [3, 2],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
 		}
-	]
+	],
+	"3": [
+		{
+			"name": "the surface elevator",
+			"description": "The surface elevator. One button: UP. Freedom is one floor above.",
+			"icon": "🆙",
+			"position": [13, 4],
+			"movable": false,
+			"room_on_overlap": 99,
+			"entry_point": [0, 0]
+		},
+		{
+			"name": "the shaft door",
+			"description": "The maintenance shaft door back to the generator room.",
+			"icon": "🔙",
+			"position": [0, 4],
+			"movable": false,
+			"room_on_overlap": 2,
+			"entry_point": [16, 5]
+		},
+		{
+			"name": "the security drone",
+			"description": "An autonomous security drone hovering in the corridor. It's blocking the way. Shoot it down - your projectiles pass through the laser grids.",
+			"icon": "🤖",
+			"position": [11, 4],
+			"movable": false,
+			"health": 150,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [5, 0],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [5, 1],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [5, 2],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [5, 3],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [5, 4],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [5, 5],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [5, 6],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [5, 7],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [9, 0],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [9, 1],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [9, 2],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [9, 3],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [9, 4],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [9, 5],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [9, 6],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the laser grid",
+			"description": "An automated laser grid spanning the full corridor. Push a crate into it to cross safely.",
+			"icon": "🔴",
+			"position": [9, 7],
+			"movable": false,
+			"damage": 25,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the supply crate",
+			"description": "A heavy supply crate. Use it to push through a laser grid safely.",
+			"icon": "📦",
+			"position": [3, 3],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the supply crate",
+			"description": "A heavy supply crate. Use it to push through a laser grid safely.",
+			"icon": "📦",
+			"position": [7, 3],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the security terminal",
+			"description": "A facility terminal: 'INTRUDER ALERT - Dr. Cosor, unauthorized access. Drone deployed at sector junction. Laser grids active. Elevator access: GRANTED (emergency protocol). Note: projectiles are unaffected by laser grids.'",
+			"icon": "💻",
+			"position": [2, 2],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
+		}
+	],
+	"99": []
 }
