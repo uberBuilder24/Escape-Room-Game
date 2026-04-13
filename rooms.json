@@ -1,0 +1,12 @@
+{
+	"0": {
+		"name": "The Tutorial Level",
+		"width": 20,
+		"height": 10
+	},
+	"1": {
+		"name": "The Developer Level",
+		"width": 10,
+		"height": 5
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"0": [
+		{
+			"name": "the key",
+			"description": "You found the key to the next room!",
+			"icon": "🔑",
+			"position": [19, 0],
+			"movable": false,
+			"room_on_overlap": 1,
+			"entry_point": [1, 0]
+		},
+		{
+			"name": "the ball",
+			"description": "Push it around, don't, I don't really care.",
+			"icon": "⚾️",
+			"position": [4, 4],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
+		},
+		{
+			"name": "the ball",
+			"description": "Push it around, don't, I don't really care.",
+			"icon": "⚾️",
+			"position": [6, 6],
+			"movable": true,
+			"health": 100,
+			"room_on_overlap": -1
+		}
+	],
+	"1": [
+		{
+			"name": "the portal",
+			"description": "You went through the portal, which takes you back to the last room...",
+			"icon": "🧲",
+			"position": [0, 0],
+			"movable": false,
+			"room_on_overlap": 0,
+			"entry_point": [18, 0]
+		},
+		{
+			"name": "the key",
+			"description": "You found the key to the next room!",
+			"icon": "🔑",
+			"position": [9, 0],
+			"movable": false,
+			"room_on_overlap": 1,
+			"entry_point": [8, 0]
+		}
+	]
+}
